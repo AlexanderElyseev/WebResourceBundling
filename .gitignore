@@ -1,0 +1,9 @@
+packages/
+WebResourceBundling/obj/
+WebResourceVirtualPathProvider/bin/
+WebResourceVirtualPathProvider/obj/
+WebResourceBundling/bin/
+*.suo
+Example/obj/
+Example/bin/
+*.user
