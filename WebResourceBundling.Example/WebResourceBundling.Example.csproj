@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebResourceBundling</RootNamespace>
-    <AssemblyName>WebResourceBundling</AssemblyName>
+    <RootNamespace>WebResourceBundling.Example</RootNamespace>
+    <AssemblyName>WebResourceBundling.Example</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -44,9 +44,10 @@
     <Reference Include="System.Web.Optimization">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Configuration" />
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="JavaScript1.js" />
@@ -73,7 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WebResourceBundling\WebResourceBundling.csproj">
-      <Project>{EC7145D2-E177-4027-9C96-D1263AB05409}</Project>
+      <Project>{ec7145d2-e177-4027-9c96-d1263ab05409}</Project>
       <Name>WebResourceBundling</Name>
     </ProjectReference>
   </ItemGroup>

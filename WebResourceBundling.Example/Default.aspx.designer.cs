@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebResourceBundling {
+namespace WebResourceBundling.Example {
     
     
     public partial class WebForm1 {
@@ -38,5 +38,14 @@ namespace WebResourceBundling {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor s2;
+        
+        /// <summary>
+        /// s3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor s3;
     }
 }

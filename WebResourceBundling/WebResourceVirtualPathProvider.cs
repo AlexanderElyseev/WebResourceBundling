@@ -1,48 +1,33 @@
 ﻿using System;
-using System.IO;
-using System.Web;
+using System.Collections;
+using System.Web.Caching;
 using System.Web.Hosting;
 
-namespace WebResourceVirtualPathProvider
+namespace WebResourceBundling
 {
     public class WebResourceVirtualPathProvider : VirtualPathProvider
     {
-        internal static string UrlTemplate
-        {
-            get { return "~/WRVPP.axd?t={0}&r={1}"; }
-        }
+        public static IWebResourceVirtualPathBuilder CurrentVirtualPathBuilder { get; set; }
 
         public override bool FileExists(string virtualPath)
         {
-            return base.FileExists(virtualPath) || GetWebResourceStream(virtualPath) != null;
+            var data = CurrentVirtualPathBuilder.RestoreFromVirtualPath(virtualPath);
+
+            return data != null || base.FileExists(virtualPath);
         }
 
         public override VirtualFile GetFile(string virtualPath)
         {
-            var stream = GetWebResourceStream(virtualPath);
-            if (stream == null)
-                throw new ArgumentException();
+            var data = CurrentVirtualPathBuilder.RestoreFromVirtualPath(virtualPath);
+            if (data != null)
+                return new WebResourceVirtualFile(virtualPath, data);
 
-            return new WebResourceVirtualFile(virtualPath, stream);
+            return base.GetFile(virtualPath);
         }
 
-        public static Stream GetWebResourceStream(string virtualPath)
+        public override CacheDependency GetCacheDependency(string virtualPath, IEnumerable virtualPathDependencies, DateTime utcStart)
         {
-            if (virtualPath == null || !virtualPath.StartsWith("~/WRVPP.axd?"))
-                return null;
-
-            var queryParams = HttpUtility.ParseQueryString(virtualPath.Split('?')[1]);
-            var typeName = queryParams["t"];
-            var resourceName = queryParams["r"];
-
-            if (string.IsNullOrEmpty(typeName) || string.IsNullOrEmpty(resourceName))
-                return null;
-            
-            var assemblyType = Type.GetType(typeName);
-            if (assemblyType == null)
-                return null;
-
-            return assemblyType.Assembly.GetManifestResourceStream(resourceName);
+            return null;
         }
     }
 }

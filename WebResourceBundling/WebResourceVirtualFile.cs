@@ -3,27 +3,29 @@ using System.Diagnostics.Contracts;
 using System.IO;
 using System.Web.Hosting;
 
-namespace WebResourceVirtualPathProvider
+namespace WebResourceBundling
 {
-    internal class WebResourceVirtualFile : VirtualFile
+    public class WebResourceVirtualFile : VirtualFile
     {
-        private readonly Stream _file;
+        private readonly WebResourceData _data;
 
         public override bool IsDirectory
         {
             get { return false; }
         }
 
-        protected internal WebResourceVirtualFile(string virtualPath, Stream file) : base(virtualPath)
+        protected internal WebResourceVirtualFile(string virtualPath, WebResourceData data) : base(virtualPath)
         {
-            Contract.Requires<ArgumentNullException>(file != null);
+            Contract.Requires<ArgumentNullException>(data != null);
+            Contract.Requires<ArgumentException>(data.ResourceAssembly != null);
+            Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(data.ResourceName));
 
-            _file = file;
+            _data = data;
         }
 
         public override Stream Open()
         {
-            return _file;
+            return _data.ResourceAssembly.GetManifestResourceStream(_data.ResourceName);
         }
     }
 }

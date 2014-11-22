@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.csproj", "{C0836C33-E63F-4086-9C18-D689AF092B58}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebResourceBundling.Example", "WebResourceBundling.Example\WebResourceBundling.Example.csproj", "{C0836C33-E63F-4086-9C18-D689AF092B58}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebResourceBundling", "WebResourceBundling\WebResourceBundling.csproj", "{EC7145D2-E177-4027-9C96-D1263AB05409}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebResourceBundling.Tests", "WebResourceBundling.Tests\WebResourceBundling.Tests.csproj", "{27BD813E-2660-4714-9BE3-312C6E841FF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{EC7145D2-E177-4027-9C96-D1263AB05409}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC7145D2-E177-4027-9C96-D1263AB05409}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC7145D2-E177-4027-9C96-D1263AB05409}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27BD813E-2660-4714-9BE3-312C6E841FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27BD813E-2660-4714-9BE3-312C6E841FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27BD813E-2660-4714-9BE3-312C6E841FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27BD813E-2660-4714-9BE3-312C6E841FF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
