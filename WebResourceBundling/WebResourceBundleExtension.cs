@@ -7,7 +7,7 @@ namespace WebResourceBundling
     {
         public static Bundle IncludeWebResource(this Bundle bundle, Type assemblyType, string resourceName)
         {
-            var provider = WebResourceBundling.WebResourceVirtualPathProvider.CurrentVirtualPathBuilder;
+            var provider = WebResourceVirtualPathProvider.CurrentVirtualPathBuilder;
             var data = new WebResourceData
             {
                 ResourceAssembly = assemblyType.Assembly,

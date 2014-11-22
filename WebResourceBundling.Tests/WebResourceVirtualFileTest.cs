@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace WebResourceBundling.Tests
 {
     [TestClass]
-    public class WebResourceTest
+    public class WebResourceVirtualFileTest
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
